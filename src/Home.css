@@ -1,0 +1,43 @@
+.home{
+    height: 100vh;
+}
+.home a{
+    text-decoration: none;
+    font-size: 15px;
+    margin-right: 20px;
+    color: rgba(0, 0, 0,.87);
+}
+.home a:hover{
+    text-decoration: underline;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+}
+.home__headerRight{
+    display: flex;
+    align-items: center;
+    min-width: 15vw;
+    justify-content: space-between;
+}
+.home__headerRight .MuiAvatar-root{
+        margin: 0px 20px !important;
+}
+.home__headerLeft{
+    display: flex;
+    align-items: center;
+}
+.home_body {
+    display: flex;
+    flex-flow: column;
+    margin-top: 79px;
+}
+.home_body form{
+    margin-top: 9px;
+}
+.home_body img{
+   object-fit: contain;
+   height: 85px;
+}
