@@ -1,11 +1,16 @@
+
+import { useStateContext } from "./StateProvider";
+
+
 export interface SearchProps {
     
 }
  
 const Search: React.FC<SearchProps> = () => {
+    const [state,dispatch] = useStateContext() as any
     return (  <>
             <div>
-                about
+                            {JSON.stringify(state.term)}
             </div>
     
     </>);

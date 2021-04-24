@@ -2,14 +2,22 @@ import { Button } from "@material-ui/core";
 import { Search } from "@material-ui/icons";
 import MicIcon from "@material-ui/icons/Mic";
 import { useState } from "react";
+import { useHistory } from "react-router";
 import "./Input.css";
+import { useStateContext } from "./StateProvider";
+
 
 export interface InputProps {
   hideButtons?: boolean;
 }
 
 const Input: React.FC<InputProps> = ({ hideButtons }) => {
+
   const [searchValue, setsearchValue] = useState("");
+  const history = useHistory()
+
+  const [term,dispatch] = useStateContext() as any[]
+            /** coustom button */
   const _button = (
     <>
       <Button variant="outlined" type="submit">
@@ -25,7 +33,12 @@ const Input: React.FC<InputProps> = ({ hideButtons }) => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(2);
+                                                    /**  dispatch  */
+          dispatch({
+                  type : "setTerm",
+                  term :  searchValue 
+          })
+          history.push('/Search')
         }}
       >
         <div className="input__container">
