@@ -1,4 +1,3 @@
-
 import Input from "./Input";
 import "./Search.css";
 import SearchOption from "./SearchOption";
@@ -10,15 +9,14 @@ export interface SearchProps {}
 const Search: React.FC<SearchProps> = () => {
   const [{ term }, dispatch] = useStateContext() as any;
 
-  if(term != null){
-    localStorage.setItem("term",term)
+  if (term != null) {
+    localStorage.setItem("term", term);
   }
-  const query = term ? term : localStorage.getItem("term")
-  const {data} = useGoogle(query)
- console.log("-----`")
+  const query = term ? term : localStorage.getItem("term");
+  const { data } = useGoogle(query);
+  
   return (
     <>
-          
       <div className="searchPage">
         <div className="upper_part">
           <header>
@@ -30,29 +28,30 @@ const Search: React.FC<SearchProps> = () => {
               <Input hideButtons />
             </div>
           </header>
-            <SearchOption/>
+          <SearchOption />
+        </div>
+
+        {data && query && (
+          <div className="searchPage__results">
+            <div className="search__container">
+              <p className="result__count">
+                about {data.searchInformation.formattedTotalResults} results{" "}
+                {data?.searchInformation.formattedSearchTime} for {query}
+              </p>
+
+              {data?.items.map((item: any) => (
+                <div className="results_item" key={item.title}>
+                  <a href={item.link}>{item.displayLink}</a>
+                  <a href={item.link}>
+                    <h2>{item.title}</h2>
+                  </a>
+                  <div className="snippet">{item.snippet}</div>
+                </div>
+              ))}
             </div>
-          {console.log(term,data,"asdasdasd")}
-         {data && query && ( <div className="searchPage__results">
-                    <p className="result__count">
-                      about {data.searchInformation.formattedTotalResults} results{" "}
-                      {data?.searchInformation.formattedSearchTime} for {query}
-                    </p>
-                      <div>
-                             
-                                {data?.items.map((item : any) => (
-                                  <div className="results_item" key={item.title}>
-                                    <a href={item.link}>{item.displayLink}</a>
-                                    <a href={item.link}>
-                                      <h2>{item.title}</h2>
-                                    </a>
-                                    <div className="snippet">{item.snippet}</div>
-                                  </div>
-                                ))}
-                      </div>
-          </div>)}
-                          {/*  */}
-        
+          </div>
+        )}
+        {/*  */}
       </div>
     </>
   );

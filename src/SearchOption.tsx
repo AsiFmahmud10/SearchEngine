@@ -18,27 +18,27 @@ const SearchOption: React.FC<searchHeaderProps> = () => {
             <div className="search__optionLeft">
               <div className="search__option">
                 <SearchIcon />
-                <Link to="/all">All</Link>
+                <Link to="/">All</Link>
               </div>
               <div className="search__option">
                 <DescriptionIcon />
-                <Link to="/all">news</Link>
+                <Link to="/">news</Link>
               </div>
               <div className="search__option">
                 <ImageIcon />
-                <Link to="/all">Image</Link>
+                <Link to="/">image</Link>
               </div>
               <div className="search__option">
                 <LocalOfferIcon />
-                <Link to="/all">All</Link>
+                <Link to="/">offer</Link>
               </div>
               <div className="search__option">
                 <RoomIcon />
-                <Link to="/all">Maps</Link>
+                <Link to="/">maps</Link>
               </div>
               <div className="search__option">
                 <MoreVertIcon />
-                <Link to="/all">More</Link>
+                <Link to="/">more</Link>
               </div>
             </div>
             <div className="search__optionRight">Settings</div>

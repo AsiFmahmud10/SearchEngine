@@ -27,7 +27,7 @@ const Home: React.FC<HomeProps> = () => {
             src="https://images.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
             alt=""
           />
-          <Input hideButtons />
+          <Input  />
         </div>
       </div>
     </>
