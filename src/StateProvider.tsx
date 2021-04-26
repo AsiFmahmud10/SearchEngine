@@ -1,16 +1,16 @@
 import { createContext, useContext, useReducer } from "react";
-import {I_initialState} from './state'
+import {Query_interface,QueryState} from './state'
+
  const StateContext = createContext({})
-
  
-
 export interface StateContextProviderProps {
     reducer : any
-    initialState : I_initialState
+    QueryState : Query_interface
 }
-const StateContextProvider: React.FC<StateContextProviderProps> = ( {reducer,initialState,children}) => {  
+const StateContextProvider: React.FC<StateContextProviderProps> = ( {reducer,QueryState,children}) => {  
     return ( <>
-        <StateContext.Provider   value = {useReducer(reducer,initialState)}>
+                            {/** useReducer return [state , dispatch] */}
+        <StateContext.Provider   value = {useReducer(reducer,QueryState)}> 
                 {children}  
         </StateContext.Provider>
     </>

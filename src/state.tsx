@@ -1,26 +1,27 @@
-export interface  I_initialState{
-     term : null | string
+export interface Query_interface {
+  term: null | string;
 }
 
-const initialState : I_initialState={
-        term : null
-}
+const QueryState: Query_interface = {
+  term: null,
+};
 
 interface I_action {
-    type:string
-    term:string
+  type: string;
+  term: string;
 }
 
-const reducer =  (state: I_initialState, action:I_action) =>{
-    console.log(action)
-            switch (action.type){
-                case "setTerm":
-                    return {
-                        ...state,
-                        term: action.term
-                    }
-            }
+const reducer = (state: Query_interface, action: I_action): Query_interface => {
+  console.log(action);
+  switch (action.type) {
+    case "setTerm":
+      return {
+        ...state,
+        term: action.term,
+      };
+    default:
+      return QueryState;
+  }
+};
 
-}
-
-export {reducer, initialState}
+export { reducer, QueryState };
